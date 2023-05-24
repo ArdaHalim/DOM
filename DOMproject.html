@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="DOMproject.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="header">Välkommen!</h1>
+
+      <img id="picture" src="fotbollsplan.jpg" alt="Bild" height="200px" width="300px">
+
+    <div class="container">
+        <button onclick="ChangeBgColor('red')">Röd bakgrund</button>
+        <button onclick="ChangeBgColor('green')">Grön bakgrund</button>
+        <button onclick="ChangeBgColor('blue')">Blå bakgrund</button>
+        <button onclick="TogglePicture()">Visa/Dölj bild</button>
+        <button onclick="ChangePicture()">Byt bild</button>
+        <button onclick="ChangeHeaderText('hej hej')">Ändra rubrik</button>
+        <button onclick="ToggleDiv()">Visa/Dölj dold div</button>
+        <button onclick="ShowTime()">Tid</button>
+        <button onclick="ResetPage()">Återställ sida</button>
+    </div>
+
+    <div id="hiddenDiv">
+        <p>detta är en div som var gömd!</p>
+    </div>
+
+    <h4 id="timeDisplay"></h4>
+
+    <script>
+function ChangeBgColor(color) {
+    document.body.style.backgroundColor = color;
+    }
+    
+function TogglePicture() {
+    var picture = document.getElementById("picture");
+    if (picture.style.display === "none") {
+    picture.style.display = "block";
+    } 
+    else {
+        picture.style.display = "none";
+        }
+    }
+    
+function ChangePicture() {
+    var picture = document.getElementById("picture");
+    picture.src = "HTML tree.png";
+    }
+    
+function ChangeHeaderText(text) {
+    var header = document.getElementById("header");
+    header.textContent = text;
+    }
+    
+function ToggleDiv() {
+    var hiddenDiv = document.getElementById("hiddenDiv");
+        if (hiddenDiv.style.display === "none") {
+        hiddenDiv.style.display = "block";
+        } 
+        else {
+            hiddenDiv.style.display = "none";
+        }
+    }
+    
+function ShowTime() {
+    var currentTime = new Date().toLocaleTimeString();
+    var timeDisplay = document.getElementById("timeDisplay");
+    timeDisplay.textContent = "Aktuell tid: " + currentTime;
+    }
+
+function ResetPage() {
+    location.reload();
+    }
+
+    </script>
+</body>
+</html>
